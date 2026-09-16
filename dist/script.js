@@ -7,7 +7,7 @@ function setLanguage(lang){
  document.querySelectorAll('[data-alt-tr]').forEach(el=>{el.alt=el.getAttribute('data-alt-'+lang)});
  document.querySelectorAll('[data-lang]').forEach(el=>el.setAttribute('aria-pressed',String(el.dataset.lang===lang)));
  document.querySelector('nav').setAttribute('aria-label',lang==='tr'?'Ana menü':'Main navigation');
- document.title=lang==='tr'?'Egg Bistro | Zekeriyaköy’de güzel bir akşam':'Egg Bistro | Good evenings in Zekeriyaköy';
+ document.title=lang==='tr'?'Egg Bistro — Zekeriyaköy, İstanbul':'Egg Bistro — Zekeriyaköy, Istanbul';
  document.querySelector('meta[name="description"]').content=lang==='tr'?'Zekeriyaköy’de taş fırın pizza, kokteyller ve sıcak bir atmosfer. Her gün 12.00–02.00. Rezervasyon: 0501 000 03 22.':'Stone-oven pizza, cocktails and a warm atmosphere in Zekeriyaköy, Istanbul. Open daily 12:00–02:00. Reservations: +90 501 000 03 22.';
  try{localStorage.setItem('egg-language',lang)}catch{}
 }
