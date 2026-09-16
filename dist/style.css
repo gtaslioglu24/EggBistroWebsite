@@ -154,3 +154,47 @@ footer { padding: 15px 7% 25px; }
 .surface::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: url("assets/grain.svg"), radial-gradient(ellipse at 4% 20%, #9563443b, transparent 55%), radial-gradient(ellipse at 95% 65%, #7940333b, transparent 60%), repeating-linear-gradient(110deg, #f1d3a803 0 1px, transparent 1px 5px); mask-image: linear-gradient(to bottom, transparent, black 100px, black calc(100% - 100px), transparent); }
 .photo-wrap, .ambience-photo { box-shadow: 0 15px 35px #00000025; }
 .food-card:nth-child(2) img { object-position: center 60%; }
+
+/* Direct actions and a compact photographic sequence. */
+.hero-actions { display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
+.hero-call { font-size:14px; padding:12px 0; color:var(--paper); }
+.hero-call:hover { text-decoration:underline; text-underline-offset:6px; }
+.table-pair { display:grid; grid-template-columns:1.15fr 1fr; gap:4%; margin-top:28px; }
+.table-pair figure, .bar-detail { margin:0; }
+.table-pair img { width:100%; height:340px; object-fit:cover; }
+.table-pair figure:first-child img { object-position:center 40%; }
+.table-pair figure:last-child img { object-position:center 80%; }
+.table-pair figcaption { margin-top:12px; font-size:14px; color:#c7beb1; }
+.ambience { align-items:start; }
+.ambience-photo { height:680px; }
+.ambience-copy { padding-top:12px; }
+.bar-detail { margin-top:26px; }
+.bar-detail img { width:100%; height:325px; object-fit:cover; object-position:center 60%; }
+@media(max-width:950px) {
+ .table-pair img { height:280px; }
+ .ambience-photo { height:660px; }
+}
+@media(max-width:600px) {
+ .hero { min-height:590px; height:auto; padding:175px 7% 95px; }
+ .hero-content { padding-top:15px; }
+ .hero-actions { gap:22px; }
+ .hero-bottom { bottom:22px; }
+ .header nav { gap:22px; font-size:13px; }
+ .hero h1 { white-space:normal; }
+ .table-pair { gap:18px; margin-top:28px; grid-template-columns:1fr 1fr; }
+ .table-pair img { height:225px; }
+ .table-pair figcaption { font-size:13px; }
+ .ambience-photo { height:390px; }
+ .ambience-copy { padding-top:0; }
+ .bar-detail img { height:360px; object-position:center 65%; }
+}
+
+.brand img { width:190px; height:auto; }
+.hero-wordmark { max-width:580px; margin:18px 0 20px; }
+.hero-wordmark img { width:100%; height:auto; }
+.footer-brand img { width:200px; }
+@media(max-width:600px) {
+ .brand img { width:156px; }
+ .hero-wordmark { width:min(100%, 360px); margin:22px 0; }
+ .footer-brand img { width:190px; }
+}

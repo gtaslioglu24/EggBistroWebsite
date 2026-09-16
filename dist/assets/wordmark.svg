@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 178" role="img" aria-label="Egg Bistro — Food, Cocktail, Wine, Enjoy">
+ <g fill="#eee7da" font-family="Arial,Helvetica,sans-serif" font-weight="700">
+  <text x="0" y="126" font-size="120" textLength="298" lengthAdjust="spacingAndGlyphs">EGG B</text>
+  <text x="366" y="126" font-size="120" textLength="274" lengthAdjust="spacingAndGlyphs">STRO</text>
+ </g>
+ <g stroke="#eee7da" stroke-width="5" stroke-linejoin="round" stroke-linecap="round" fill="none">
+  <path d="M315 17 305 49C297 77 307 93 332 98C357 93 367 77 359 49L349 17"/>
+  <path d="M306 55C322 41 341 68 358 54M332 99V118M316 127Q332 118 348 127Z"/>
+ </g>
+ <text x="320" y="169" fill="#eee7da" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="600" text-anchor="middle" textLength="544" lengthAdjust="spacingAndGlyphs">FOOD · COCKTAIL · WINE · ENJOY</text>
+</svg>
