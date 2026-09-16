@@ -53,15 +53,6 @@ em { font-weight: 400; }
 .menu-section { padding-top: 35px; padding-bottom: 45px; }
 .section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 35px; margin-bottom: 28px; }
 .section-heading h2 { font-size: clamp(48px, 5vw, 72px); }
-.food-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 4%; align-items: start; }
-.food-card:first-child .photo-wrap { aspect-ratio: 1.1; }
-.food-card:nth-child(2) { padding-top: 42px; }
-.photo-wrap { overflow: hidden; aspect-ratio: 1; }
-.photo-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(.2,.65,.3,1); }
-.food-card:first-child img { object-position: center 65%; }
-.food-card:hover img { transform: scale(1.025); }
-.card-caption { margin-top: 20px; }
-.card-caption h3 { font: 400 14px/1.5 'Manrope', Arial, sans-serif; color: #c7beb1; }
 .ambience { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 6%; padding: 35px 7% 45px; }
 .ambience-photo { height: 490px; width: 100%; margin-left: 0; }
 .ambience-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
@@ -79,8 +70,6 @@ em { font-weight: 400; }
 .visit-details .text-link { margin-top: 9px; }
 footer { padding: 15px 7% 25px; }
 .footer-top { display: flex; justify-content: space-between; align-items: center; gap: 30px; padding-bottom: 38px; }
-.sign-logo { width: 180px; height: 80px; overflow: hidden; display: block; }
-.sign-logo img { width: 285px; max-width: none; height: 167px; object-fit: cover; transform: translate(-47px, -43px); }
 .footer-links { display: flex; gap: 30px; font-size: 14px; }
 .footer-bottom { padding-top: 22px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 20px; font-size: 12px; color: var(--muted); }
 .footer-bottom > span:nth-child(2) { letter-spacing: .1em; }
@@ -97,8 +86,6 @@ footer { padding: 15px 7% 25px; }
  .section { padding: 45px 7%; }
  .intro { gap: 6%; }
  .intro-title { padding-left: 0; }
- .food-grid { gap: 4%; }
- .food-card:nth-child(2) { padding-top: 36px; }
  .ambience { padding: 35px 7% 45px; gap: 6%; }
  .ambience-photo { height: 520px; margin-left: 0; width: 100%; }
  .phone { font-size: 36px; }
@@ -124,11 +111,6 @@ footer { padding: 15px 7% 25px; }
  .section-heading { flex-direction: column; align-items: flex-start; gap: 15px; margin-bottom: 30px; }
  .section-heading h2 { font-size: 46px; }
  .menu-section { padding-top: 40px; }
- .food-grid { grid-template-columns: 1fr; gap: 28px; }
- .food-card:first-child { margin-right: 0; }
- .food-card:nth-child(2) { padding-top: 0; margin-left: 8%; }
- .food-card:nth-child(2) .photo-wrap { aspect-ratio: 4/5; }
- .card-caption { margin-top: 14px; }
  .ambience { padding: 25px 7% 35px; grid-template-columns: 1fr; gap: 25px; }
  .ambience-photo { height: 400px; width: 100%; }
  .ambience-copy { padding-left: 0; }
@@ -152,26 +134,17 @@ footer { padding: 15px 7% 25px; }
 /* A continuous, softly lit texture behind the editorial content. */
 .surface { position: relative; isolation: isolate; }
 .surface::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: url("assets/grain.svg"), radial-gradient(ellipse at 4% 20%, #9563443b, transparent 55%), radial-gradient(ellipse at 95% 65%, #7940333b, transparent 60%), repeating-linear-gradient(110deg, #f1d3a803 0 1px, transparent 1px 5px); mask-image: linear-gradient(to bottom, transparent, black 100px, black calc(100% - 100px), transparent); }
-.photo-wrap, .ambience-photo { box-shadow: 0 15px 35px #00000025; }
-.food-card:nth-child(2) img { object-position: center 60%; }
 
 /* Direct actions and a compact photographic sequence. */
 .hero-actions { display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
 .hero-call { font-size:14px; padding:12px 0; color:var(--paper); }
 .hero-call:hover { text-decoration:underline; text-underline-offset:6px; }
-.table-pair { display:grid; grid-template-columns:1.15fr 1fr; gap:4%; margin-top:28px; }
-.table-pair figure, .bar-detail { margin:0; }
-.table-pair img { width:100%; height:340px; object-fit:cover; }
-.table-pair figure:first-child img { object-position:center 40%; }
-.table-pair figure:last-child img { object-position:center 80%; }
-.table-pair figcaption { margin-top:12px; font-size:14px; color:#c7beb1; }
 .ambience { align-items:start; }
 .ambience-photo { height:680px; }
 .ambience-copy { padding-top:12px; }
 .bar-detail { margin-top:26px; }
 .bar-detail img { width:100%; height:325px; object-fit:cover; object-position:center 60%; }
 @media(max-width:950px) {
- .table-pair img { height:280px; }
  .ambience-photo { height:660px; }
 }
 @media(max-width:600px) {
@@ -181,21 +154,15 @@ footer { padding: 15px 7% 25px; }
  .hero-bottom { bottom:22px; }
  .header nav { gap:22px; font-size:13px; }
  .hero h1 { white-space:normal; }
- .table-pair { gap:18px; margin-top:28px; grid-template-columns:1fr 1fr; }
- .table-pair img { height:225px; }
- .table-pair figcaption { font-size:13px; }
  .ambience-photo { height:390px; }
  .ambience-copy { padding-top:0; }
  .bar-detail img { height:360px; object-position:center 65%; }
 }
 
 .brand img { width:190px; height:auto; }
-.hero-wordmark { max-width:580px; margin:18px 0 20px; }
-.hero-wordmark img { width:100%; height:auto; }
 .footer-brand img { width:200px; }
 @media(max-width:600px) {
  .brand img { width:156px; }
- .hero-wordmark { width:min(100%, 360px); margin:22px 0; }
  .footer-brand img { width:190px; }
 }
 
@@ -204,22 +171,9 @@ footer { padding: 15px 7% 25px; }
 .hero h1.hero-title { font-size:clamp(90px,11vw,152px); line-height:1.08; }
 .header .brand img { width:162px; }
 .footer-brand img { width:174px; }
-.menu-editorial figure { margin:0; }
-.signature-photo > img { width:100%; height:480px; object-fit:cover; object-position:center 43%; }
-.signature-photo figcaption { display:flex; justify-content:space-between; gap:18px; margin-top:16px; font-size:16px; }
-.signature-photo figcaption span:last-child { font-size:14px; color:var(--muted); }
-.menu-details { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:30px; }
-.menu-details img { width:100%; height:245px; object-fit:cover; }
-.menu-details figure:nth-child(1) img { object-position:center 68%; }
-.menu-details figure:nth-child(2) img { object-position:center 60%; }
-.menu-details figure:nth-child(3) img { object-position:center 80%; }
-.menu-details figcaption { color:var(--muted); font-size:14px; margin-top:12px; }
 .ambience-photo { height:640px; }
 .bar-detail img { height:385px; object-position:center 72%; }
 @media(max-width:950px) {
- .signature-photo > img { height:400px; }
- .menu-details { gap:18px; }
- .menu-details img { height:215px; }
  .ambience-photo { height:680px; }
 }
 @media(max-width:600px) {
@@ -227,34 +181,44 @@ footer { padding: 15px 7% 25px; }
  .hero h1.hero-title { font-size:clamp(62px,17vw,100px); white-space:nowrap; }
  .hero-copy { font-size:16px; }
  .hero { padding-top:165px; min-height:570px; }
- .signature-photo > img { height:320px; object-position:center 40%; }
- .signature-photo figcaption { flex-direction:column; gap:2px; }
- .menu-details { grid-template-columns:1fr 1fr; gap:22px 16px; margin-top:24px; }
- .menu-details img { height:210px; }
- .menu-details figure:last-child { grid-column:1/-1; }
- .menu-details figure:last-child img { height:225px; }
  .ambience-photo { height:380px; }
  .bar-detail img { height:410px; object-position:center 65%; }
 }
 
-/* A quiet two-column photo essay, with shared edges and caption baselines. */
-.kitchen-story { display:grid; grid-template-columns:1fr 1fr; gap:44px 36px; max-width:1000px; margin:36px auto 0; align-items:end; }
+/* One lead photograph and a supporting sequence share a single composition. */
+.kitchen-story { display:grid; grid-template-columns:1fr 1fr; gap:5%; max-width:1000px; margin:32px auto 0; align-items:start; }
 .kitchen-photo { margin:0; min-width:0; }
 .kitchen-frame { overflow:hidden; }
 .kitchen-frame img { width:100%; height:auto; }
-/* Remove only the top 5%: the plate, glass and bottom edge stay intact. */
 .dinner-frame img { margin-top:-7.5%; }
-.kitchen-photo figcaption { padding:17px 0 0; }
-.kitchen-photo h3 { font-size:29px; line-height:1.2; letter-spacing:-.015em; }
+.kitchen-photo figcaption { padding-top:14px; }
+.kitchen-photo h3 { font-size:28px; line-height:1.2; letter-spacing:-.015em; }
 .kitchen-photo figcaption p { margin-top:7px; font-size:14px; line-height:1.65; color:var(--muted); }
-.hero-actions { margin-top:30px; }
-@media(max-width:600px) {
- .kitchen-story { gap:30px 18px; margin-top:24px; }
- .kitchen-photo figcaption { padding-top:12px; }
- .kitchen-photo h3 { font-size:23px; }
- .kitchen-photo figcaption p { font-size:14px; margin-top:6px; }
+.kitchen-pair { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+.kitchen-pair h3 { font-size:25px; }
+.kitchen-dinner { display:grid; grid-template-columns:46% 1fr; gap:22px; align-items:center; margin-top:30px; }
+.kitchen-dinner figcaption { padding:0; }
+.hero-copy { font-size:17px; margin:16px 0 24px; }
+.hero-actions { margin-top:0; gap:28px; }
+.hero-call { border:1px solid #eee7da85; padding:12px 20px; min-height:48px; background:#211e1b38; transition:background .25s,border-color .25s; }
+.hero-call:hover { background:#eee7da18; border-color:var(--paper); text-decoration:none; }
+@media(max-width:700px) {
+ .kitchen-story { grid-template-columns:1fr; gap:30px; max-width:480px; }
+ .kitchen-lead { display:grid; grid-template-columns:68% 1fr; gap:18px; align-items:end; }
+ .kitchen-lead figcaption { padding:0 0 4px; }
+ .kitchen-lead h3 { font-size:26px; }
+ .kitchen-pair { gap:20px; }
+ .kitchen-pair h3 { font-size:25px; }
+ .kitchen-dinner { grid-template-columns:46% 1fr; gap:22px; margin-top:28px; }
+ .hero-actions { gap:18px; }
+ .hero-call { padding:11px 14px; }
+ .hero-copy { font-size:16px; max-width:320px; }
+ .hero { min-height:600px; }
 }
-@media(max-width:380px) {
- .kitchen-story { grid-template-columns:1fr; gap:28px; }
- .kitchen-photo h3 { font-size:27px; }
+@media(max-width:420px) {
+ .kitchen-lead { grid-template-columns:65% 1fr; gap:16px; }
+ .kitchen-lead h3 { font-size:25px; }
+ .kitchen-photo figcaption p { font-size:14px; }
+ .hero-actions { gap:16px; }
+ .hero-call { padding:11px 12px; }
 }
