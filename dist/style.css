@@ -133,7 +133,7 @@ footer { padding: 15px 7% 25px; }
 
 /* A continuous, softly lit texture behind the editorial content. */
 .surface { position: relative; isolation: isolate; }
-.surface::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: url("assets/grain.svg"), radial-gradient(ellipse at 4% 20%, #9563443b, transparent 55%), radial-gradient(ellipse at 95% 65%, #7940333b, transparent 60%), repeating-linear-gradient(110deg, #f1d3a803 0 1px, transparent 1px 5px); mask-image: linear-gradient(to bottom, transparent, black 100px, black calc(100% - 100px), transparent); }
+.surface::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; background-image: url("assets/grain.svg"), radial-gradient(ellipse at 4% 20%, #95634460, transparent 55%), radial-gradient(ellipse at 95% 65%, #79403358, transparent 60%), repeating-linear-gradient(110deg, #f1d3a803 0 1px, transparent 1px 5px); mask-image: linear-gradient(to bottom, transparent, black 100px, black calc(100% - 100px), transparent); }
 
 /* Direct actions and a compact photographic sequence. */
 .hero-actions { display:flex; align-items:center; gap:32px; flex-wrap:wrap; }
@@ -239,3 +239,13 @@ footer { padding: 15px 7% 25px; }
  .kitchen-support { grid-column:1; grid-row:auto; }
  .kitchen-dinner { gap:20px; }
 }
+
+/* Fill the shared image row without stretching the photograph. */
+@media(min-width:701px) {
+ .kitchen-lead > .kitchen-frame { align-self:stretch; position:relative; min-height:0; }
+ .kitchen-lead > .kitchen-frame img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
+}
+.intro { padding-top:66px; }
+.studio-credit { margin-top:22px; color:var(--muted); font-size:12px; line-height:1.8; }
+@media(max-width:950px) { .intro { padding-top:69px; } }
+@media(max-width:600px) { .intro { padding-top:48px; } }
