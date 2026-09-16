@@ -236,3 +236,23 @@ footer { padding: 15px 7% 25px; }
  .ambience-photo { height:380px; }
  .bar-detail img { height:410px; object-position:center 65%; }
 }
+
+/* Portraits retain their original framing; varied scale gives the spread its rhythm. */
+.kitchen-story { display:grid; grid-template-columns:1fr 1fr; gap:7%; max-width:1120px; margin:36px auto 0; }
+.kitchen-story figure { margin:0; }
+.kitchen-story img { width:100%; height:auto; }
+.kitchen-left, .kitchen-right { display:flex; flex-direction:column; gap:32px; }
+.kitchen-left figure:first-child { width:92%; }
+.kitchen-left figure:last-child { width:58%; align-self:flex-end; }
+.kitchen-right { padding-top:80px; }
+.kitchen-right figure:first-child { width:62%; }
+.kitchen-right figure:last-child { width:94%; align-self:flex-end; }
+.hero-actions { margin-top:30px; }
+@media(max-width:600px) {
+ .kitchen-story { gap:6%; margin-top:24px; }
+ .kitchen-left, .kitchen-right { gap:20px; }
+ .kitchen-left figure:first-child, .kitchen-right figure:last-child { width:100%; }
+ .kitchen-left figure:last-child { width:86%; }
+ .kitchen-right { padding-top:48px; }
+ .kitchen-right figure:first-child { width:86%; }
+}
