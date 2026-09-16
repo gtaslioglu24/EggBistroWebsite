@@ -249,3 +249,10 @@ footer { padding: 15px 7% 25px; }
 .studio-credit { margin-top:22px; color:var(--muted); font-size:12px; line-height:1.8; }
 @media(max-width:950px) { .intro { padding-top:69px; } }
 @media(max-width:600px) { .intro { padding-top:48px; } }
+
+.studio-signature { display:flex; flex-direction:column; gap:3px; }
+.footer-bottom .rights { margin:0; text-align:right; }
+@media(max-width:600px) {
+ .footer-bottom { align-items:flex-start; gap:14px 20px; }
+ .footer-bottom .rights { text-align:left; }
+}
