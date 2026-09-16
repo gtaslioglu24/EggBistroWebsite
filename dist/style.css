@@ -222,3 +222,20 @@ footer { padding: 15px 7% 25px; }
  .hero-actions { gap:16px; }
  .hero-call { padding:11px 12px; }
 }
+
+/* Shared image baseline; dinner uses exactly the oven column width. */
+.bar-detail { margin:26px 0 0; width:100%; }
+.kitchen-story { align-items:end; row-gap:14px; }
+.kitchen-lead { display:contents; }
+.kitchen-lead > .kitchen-frame { grid-column:1; grid-row:1; align-self:end; }
+.kitchen-lead > figcaption { grid-column:1; grid-row:2; padding-top:0; }
+.kitchen-support { grid-column:2; grid-row:1; }
+.kitchen-dinner { grid-template-columns:1fr 1fr; gap:22px; }
+@media(max-width:700px) {
+ .kitchen-story { row-gap:30px; }
+ .kitchen-lead { display:grid; }
+ .kitchen-lead > .kitchen-frame { grid-column:1; grid-row:1; }
+ .kitchen-lead > figcaption { grid-column:2; grid-row:1; padding:0 0 4px; }
+ .kitchen-support { grid-column:1; grid-row:auto; }
+ .kitchen-dinner { gap:20px; }
+}
