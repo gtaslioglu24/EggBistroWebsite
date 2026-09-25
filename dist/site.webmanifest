@@ -1,0 +1,35 @@
+{
+  "name": "Egg Bistro",
+  "short_name": "Egg Bistro",
+  "description": "Zekeriyaköy’de taş fırın pizza, kokteyller ve sıcak bir atmosfer. Egg Bistro menüsünü keşfedin. Her gün 12.00–02.00. Rezervasyon: 0501 000 03 22.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#211e1b",
+  "theme_color": "#211e1b",
+  "lang": "tr",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "/icon-512-maskable.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "maskable"
+    }
+  ]
+}

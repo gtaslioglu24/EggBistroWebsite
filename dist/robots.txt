@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://eggbistro.com.tr/sitemap.xml
