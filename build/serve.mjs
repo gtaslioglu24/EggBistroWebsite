@@ -1,10 +1,16 @@
 import http from 'node:http';
 import { readFile, stat } from 'node:fs/promises';
+import { readFileSync } from 'node:fs';
 import { join, extname, normalize } from 'node:path';
 const ROOT = '/Users/gokay/Desktop/EggBistroWebsite/dist';
 const T = { '.html':'text/html; charset=utf-8', '.css':'text/css; charset=utf-8', '.js':'text/javascript; charset=utf-8',
   '.svg':'image/svg+xml', '.webp':'image/webp', '.png':'image/png', '.woff2':'font/woff2',
   '.json':'application/json', '.webmanifest':'application/manifest+json', '.xml':'application/xml', '.txt':'text/plain; charset=utf-8' };
+// Mirrors the Content-Security-Policy that vercel.json sends in production,
+// so a policy violation shows up locally instead of after deploying.
+const CSP = { 'Content-Security-Policy': JSON.parse(readFileSync(new URL('../vercel.json', import.meta.url)))
+  .headers[0].headers.find(h => h.key === 'Content-Security-Policy').value };
+
 http.createServer(async (req, res) => {
   let p = decodeURIComponent(new URL(req.url, 'http://x').pathname);
   let f = join(ROOT, normalize(p).replace(/^(\.\.[/\\])+/, ''));
@@ -16,7 +22,7 @@ http.createServer(async (req, res) => {
       const v = Date.now();
       body = Buffer.from(String(body).replace(/(href|src)="(\/(?:style\.css|script\.js))"/g, `$1="$2?v=${v}"`));
     }
-    res.writeHead(200, { 'Content-Type': T[extname(f)] || 'application/octet-stream', 'Cache-Control': 'no-store' });
+    res.writeHead(200, { 'Content-Type': T[extname(f)] || 'application/octet-stream', 'Cache-Control': 'no-store', ...CSP });
     res.end(body);
   } catch {
     try {

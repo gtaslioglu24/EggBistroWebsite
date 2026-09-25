@@ -297,6 +297,7 @@ footer { padding: 15px var(--gutter) 25px; }
 @media (max-width: 600px) {
   :root { --bar-h: 90px; --bar-h-solid: 62px; --gutter: 7%; }
   body { padding-bottom: 64px; }   /* room for the fixed call bar */
+  body.page-404 { padding-bottom: 0; }   /* no call bar there */
   html { scroll-padding-top: calc(var(--bar-h-solid) + 8px); }
 
   .header { padding: 18px var(--gutter); flex-wrap: wrap; align-content: center; gap: 10px; }
@@ -371,3 +372,9 @@ footer { padding: 15px var(--gutter) 25px; }
   html { scroll-behavior: auto; }
   * { transition: none !important; }
 }
+
+/* -------------------------------------------------------------- 404 page */
+.nf { min-height: 100svh; display: grid; place-content: center; text-align: center; gap: 18px; padding: 40px var(--gutter); }
+.nf img { width: 190px; margin: 0 auto 10px; }
+.nf p { color: var(--muted); }
+.nf .text-link { margin-top: 6px; }

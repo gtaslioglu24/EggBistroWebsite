@@ -381,14 +381,8 @@ function notFound(t) {
 <meta name="theme-color" content="${SITE.themeColor}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/style.css">
-<style>
- .nf { min-height: 100svh; display: grid; place-content: center; text-align: center; gap: 18px; padding: 40px 7%; }
- .nf img { width: 190px; margin: 0 auto 10px; }
- .nf p { color: var(--muted); }
- .nf .text-link { margin-top: 6px; }
-</style>
 </head>
-<body>
+<body class="page-404">
 <main class="nf">
   <img src="/assets/wordmark.svg" alt="Egg Bistro" width="220" height="61">
   <h1>${esc(t.notFoundTitle)}</h1>

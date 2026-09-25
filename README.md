@@ -42,6 +42,30 @@ field and re-run `node build/build.mjs`.
 
 The phone number (`0501 000 03 22`) is confirmed correct.
 
+## Deploying (Vercel)
+
+Import the repo and set:
+
+| Setting | Value |
+|---|---|
+| Framework Preset | Other |
+| Root Directory | `./` |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
+| Install Command | leave default (there are no dependencies) |
+
+`vercel.json` adds the security headers (CSP, HSTS, `nosniff`, `Referrer-Policy`,
+`Permissions-Policy`, `frame-ancestors`) and the cache policy. Static hosting cannot
+set headers from the HTML, so this file is the only place they exist — keep it.
+
+Cache policy: fonts are immutable for a year; `/assets/*` is 30 days and deliberately
+**not** immutable, because derivative filenames carry a width (`hero-1200.webp`) rather
+than a content hash — a replaced photograph reuses its name. HTML, CSS and JS always
+revalidate.
+
+The CSP allows no inline styles or scripts. `build/serve.mjs` sends the same policy
+locally, so a violation shows up before deploying rather than after.
+
 ## Notes
 
 - **The hero photograph is portrait (1201×1800) used as a wide banner.** It is the

@@ -1,0 +1,11 @@
+{
+  "name": "eggbistro-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Static bilingual site for Egg Bistro, Zekeriyaköy, Istanbul",
+  "type": "module",
+  "scripts": {
+    "build": "node build/build.mjs",
+    "dev": "node build/serve.mjs"
+  }
+}
