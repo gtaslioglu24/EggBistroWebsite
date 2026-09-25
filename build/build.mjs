@@ -18,10 +18,10 @@ const DIST = join(ROOT, 'dist');
  * Everything environment-specific lives here and nowhere else.
  * ======================================================================== */
 const SITE = {
-  // TODO: replace with the real domain once it is registered, then re-run the build.
+  // The intended domain. Not registered yet — canonical, hreflang, OG and the
+  // sitemap all point here, so they only resolve once it is live.
   origin: 'https://eggbistro.com.tr',
 
-  // TODO: 0501 000 03 22 is a placeholder. Replace both fields with the real number.
   phoneDisplay: '0501 000 03 22',
   phoneE164: '+905010000322',
 

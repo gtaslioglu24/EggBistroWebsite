@@ -32,14 +32,15 @@ Copy, wording and language handling all live in `STRINGS` in `build/build.mjs`.
 Adding a language means adding one object there — the nav, `hreflang`, sitemap
 and language switcher all derive from it.
 
-## Two things still need real values
+## Before launch
 
-Both are at the top of `build/build.mjs`, in `SITE`. Change them and re-run the build.
+The only outstanding item is the domain. `eggbistro.com.tr` is set as `SITE.origin`
+in `build/build.mjs`, but it is not registered yet — so the canonical URL, `hreflang`
+alternates, Open Graph URLs and the sitemap all point at a host that does not resolve.
+Nothing needs changing once it is live; if the domain ends up different, edit that one
+field and re-run `node build/build.mjs`.
 
-| Field | Current | Note |
-|---|---|---|
-| `origin` | `https://eggbistro.com.tr` | Placeholder. Feeds canonical, hreflang, OG tags and the sitemap — all of which are wrong until the real domain is set. |
-| `phoneDisplay` / `phoneE164` | `0501 000 03 22` | **Placeholder.** This is the site's only conversion path; it appears in the header, hero, call bar, footer, JSON-LD and the meta description. |
+The phone number (`0501 000 03 22`) is confirmed correct.
 
 ## Notes
 
