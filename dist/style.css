@@ -125,6 +125,7 @@ em { font-weight: 400; }
 
 /* ------------------------------------------------------------------ hero */
 .hero {
+  --solid-after: calc(100% - 140px);   /* how far you scroll before the header goes solid */
   position: relative; min-height: 690px; height: 88svh; max-height: 1150px;
   padding: 170px 8% 145px; display: flex; align-items: center; isolation: isolate;
 }
@@ -279,15 +280,27 @@ footer { padding: 15px var(--gutter) 25px; }
 }
 
 @media (max-width: 700px) {
-  .kitchen-story { grid-template-columns: 1fr; gap: 30px; row-gap: 30px; max-width: 480px; }
-  .kitchen-lead { display: grid; grid-template-columns: 68% 1fr; gap: 18px; align-items: end; }
-  .kitchen-lead > .kitchen-frame { grid-column: 1; grid-row: 1; align-self: auto; position: static; }
-  .kitchen-lead > .kitchen-frame img { position: static; height: auto; }
-  .kitchen-lead > figcaption { grid-column: 2; grid-row: 1; padding: 0 0 4px; }
-  .kitchen-lead h3 { font-size: 26px; }
-  .kitchen-support { grid-column: 1; grid-row: auto; }
-  .kitchen-pair { gap: 20px; }
-  .kitchen-dinner { grid-template-columns: 46% 1fr; gap: 20px; margin-top: 28px; }
+  /* Photographs carry the page on a phone: the lead and the dinner shot run
+     edge to edge, the two supporting details sit inside the gutter between
+     them. Every caption sits under its own picture. */
+  /* min-width:0 stops the 100vw child from blowing out its grid track. */
+  .bleed { width: 100vw; min-width: 0; margin-left: 50%; translate: -50% 0; max-width: none; }
+
+  .kitchen-story { display: block; max-width: none; margin-top: 26px; }
+  .kitchen-lead { display: block; }
+  .kitchen-lead > .kitchen-frame { align-self: auto; position: static; min-height: 0; }
+  .kitchen-lead > .kitchen-frame img { position: static; aspect-ratio: 4 / 5; height: auto; }
+  .kitchen-lead > figcaption { padding-top: 14px; }
+
+  .kitchen-support { margin-top: 44px; }
+  .kitchen-pair { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .kitchen-pair img { aspect-ratio: 3 / 4; height: auto; object-fit: cover; }
+  .kitchen-pair h3 { font-size: 22px; }
+
+  .kitchen-dinner { display: block; margin-top: 44px; }
+  .kitchen-dinner .kitchen-frame img { aspect-ratio: 16 / 10; height: auto; margin-top: 0; }
+  .kitchen-dinner figcaption { padding-top: 14px; }
+
   .hero { min-height: 600px; }
   .hero-actions { gap: 18px; }
   .hero-call { padding: 11px 14px; }
@@ -310,13 +323,14 @@ footer { padding: 15px var(--gutter) 25px; }
   }
   .header.is-solid nav { opacity: 0; pointer-events: none; }
 
-  .hero { min-height: 600px; height: auto; padding: 165px var(--gutter) 95px; }
+  /* Fill the screen exactly, so the next section never peeks on first load. */
+  .hero { --solid-after: 90px; min-height: 100svh; height: auto; padding: 150px var(--gutter) 140px; }
   .hero-content { padding-top: 15px; }
   .hero h1.hero-title { font-size: clamp(62px, 17vw, 100px); white-space: nowrap; }
   .hero .eyebrow { font-size: 12px; letter-spacing: .11em; }
   .hero-copy { font-size: 16px; }
   .hero-actions { gap: 22px; }
-  .hero-bottom { left: var(--gutter); right: var(--gutter); bottom: 22px; font-size: 12px; letter-spacing: 0; }
+  .hero-bottom { left: var(--gutter); right: var(--gutter); bottom: 86px; font-size: 12px; letter-spacing: 0; }
 
   .section { padding: 35px var(--gutter); }
   h2 { font-size: 48px; }
@@ -328,13 +342,14 @@ footer { padding: 15px var(--gutter) 25px; }
   .section-heading h2 { font-size: 46px; }
   .menu-section { padding-top: 40px; }
 
-  .ambience { padding: 25px var(--gutter) 35px; grid-template-columns: 1fr; gap: 25px; }
-  .ambience-photo { height: 380px; }
+  .ambience { padding: 25px var(--gutter) 35px; grid-template-columns: minmax(0, 1fr); gap: 25px; }
+  .ambience-photo { height: auto; }
+  .ambience-photo img { aspect-ratio: 4 / 5; height: auto; }
   .ambience-copy { padding-top: 0; display: block; height: auto; max-width: none; }
   .ambience-copy h2 { font-size: 48px; }
   .ambience-copy > p { margin-top: 20px; }
   .bar-detail { flex: none; }
-  .bar-detail img { height: 410px; object-position: center 65%; }
+  .bar-detail img { aspect-ratio: 4 / 3; height: auto; object-position: center 65%; }
 
   .visit { grid-template-columns: 1fr; gap: 28px; padding-top: 35px; padding-bottom: 35px; }
   .visit h2 { font-size: 46px; }

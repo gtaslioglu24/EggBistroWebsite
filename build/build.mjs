@@ -290,7 +290,7 @@ ${alts}
   </div>
   <div class="kitchen-story">
     <figure class="kitchen-photo kitchen-lead">
-      <div class="kitchen-frame">${img('pizza', { widths: [320, 480, 720, 960], sizes: '(max-width: 700px) 60vw, 41vw', alt: t.alt.pizza })}</div>
+      <div class="kitchen-frame bleed">${img('pizza', { widths: [320, 480, 720, 960], sizes: '(max-width: 700px) 60vw, 41vw', alt: t.alt.pizza })}</div>
       <figcaption><h3>${esc(t.capPizza)}</h3></figcaption>
     </figure>
     <div class="kitchen-support">
@@ -305,7 +305,7 @@ ${alts}
         </figure>
       </div>
       <figure class="kitchen-photo kitchen-dinner">
-        <div class="kitchen-frame dinner-frame">${img('ekle', { widths: [320, 480, 640], sizes: '(max-width: 700px) 40vw, 20vw', alt: t.alt.dinner })}</div>
+        <div class="kitchen-frame dinner-frame bleed">${img('ekle', { widths: [320, 480, 640], sizes: '(max-width: 700px) 40vw, 20vw', alt: t.alt.dinner })}</div>
         <figcaption><h3>${esc(t.capDinner)}</h3></figcaption>
       </figure>
     </div>
@@ -313,7 +313,7 @@ ${alts}
 </section>
 
 <section class="ambience">
-  <div class="ambience-photo">${img('interior-shelves', { widths: [480, 720, 960, 1200], sizes: '(max-width: 600px) 86vw, 41vw', alt: t.alt.shelves })}</div>
+  <div class="ambience-photo bleed">${img('interior-shelves', { widths: [480, 720, 960, 1200], sizes: '(max-width: 600px) 86vw, 41vw', alt: t.alt.shelves })}</div>
   <div class="ambience-copy">
     <h2>${t.ambienceTitle}</h2>
     <p>${esc(t.ambienceCopy)}</p>

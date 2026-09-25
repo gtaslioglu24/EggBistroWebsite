@@ -12,7 +12,8 @@ const hero = document.querySelector('.hero');
 if (header && hero && 'IntersectionObserver' in window) {
   const sentinel = document.createElement('div');
   sentinel.setAttribute('aria-hidden', 'true');
-  sentinel.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:calc(100% - 120px);pointer-events:none';
+  sentinel.style.cssText = 'position:absolute;top:0;left:0;width:1px;pointer-events:none;'
+    + 'height:var(--solid-after, calc(100% - 140px))';
   hero.appendChild(sentinel);
 
   new IntersectionObserver(
