@@ -222,14 +222,21 @@ em { font-weight: 400; }
 .kitchen-support { grid-column: 2; grid-row: 1; }
 
 /* ------------------------------------------------------------- ambience */
-/* Both columns are the same explicit height, so their photographs end level. */
-.ambience { --amb-h: 640px; display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 6%; padding: 35px var(--gutter) 45px; }
-.ambience-photo { height: var(--amb-h); width: 100%; }
+/* Tall photograph on the left; heading and detail photo stack on the right.
+   The tall one sets the row height, so both columns end level. */
+.ambience {
+  --amb-h: 640px;
+  display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto minmax(0, 1fr);
+  column-gap: 6%; row-gap: 26px; padding: 35px var(--gutter) 45px;
+  /* A definite height is what lets the 1fr row resolve, so the detail photo
+     takes exactly the space the heading leaves and both columns end level. */
+  height: calc(var(--amb-h) + 35px + 45px);
+}
+.ambience-photo { grid-column: 1; grid-row: 1 / 3; height: var(--amb-h); width: 100%; }
 .ambience-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
-.ambience-copy { max-width: 480px; height: var(--amb-h); display: flex; flex-direction: column; padding-top: 12px; }
+.ambience-copy { grid-column: 2; grid-row: 1; max-width: 480px; padding-top: 12px; }
 .ambience-copy > p { margin-top: 27px; color: var(--muted); }
-/* A definite column height lets the detail photo absorb the leftover space. */
-.bar-detail { margin: 26px 0 0; width: 100%; flex: 1 1 auto; min-height: 0; }
+.bar-detail { grid-column: 2; grid-row: 2; margin: 0; width: 100%; max-width: 480px; min-height: 0; }
 .bar-detail img { width: 100%; height: 100%; object-fit: cover; object-position: center 72%; }
 
 /* ---------------------------------------------------------------- visit */
@@ -280,26 +287,22 @@ footer { padding: 15px var(--gutter) 25px; }
 }
 
 @media (max-width: 700px) {
-  /* Photographs carry the page on a phone: the lead and the dinner shot run
-     edge to edge, the two supporting details sit inside the gutter between
-     them. Every caption sits under its own picture. */
-  /* min-width:0 stops the 100vw child from blowing out its grid track. */
-  .bleed { width: 100vw; min-width: 0; margin-left: 50%; translate: -50% 0; max-width: none; }
-
+  /* Every photograph shares one measure: the lead spans the full column, and
+     the oven and cocktail pair sit flush with its left and right edges. */
   .kitchen-story { display: block; max-width: none; margin-top: 26px; }
   .kitchen-lead { display: block; }
   .kitchen-lead > .kitchen-frame { align-self: auto; position: static; min-height: 0; }
   .kitchen-lead > .kitchen-frame img { position: static; aspect-ratio: 4 / 5; height: auto; }
   .kitchen-lead > figcaption { padding-top: 14px; }
 
-  .kitchen-support { margin-top: 44px; }
+  .kitchen-support { margin-top: 40px; }
   .kitchen-pair { grid-template-columns: 1fr 1fr; gap: 14px; }
   .kitchen-pair img { aspect-ratio: 3 / 4; height: auto; object-fit: cover; }
   .kitchen-pair h3 { font-size: 22px; }
 
-  .kitchen-dinner { display: block; margin-top: 44px; }
-  .kitchen-dinner .kitchen-frame img { aspect-ratio: 16 / 10; height: auto; margin-top: 0; }
-  .kitchen-dinner figcaption { padding-top: 14px; }
+  /* The dinner shot stays upright, with its caption alongside. */
+  .kitchen-dinner { display: grid; grid-template-columns: 46% 1fr; gap: 20px; align-items: center; margin-top: 40px; }
+  .kitchen-dinner figcaption { padding: 0; }
 
   .hero { min-height: 600px; }
   .hero-actions { gap: 18px; }
@@ -342,13 +345,14 @@ footer { padding: 15px var(--gutter) 25px; }
   .section-heading h2 { font-size: 46px; }
   .menu-section { padding-top: 40px; }
 
-  .ambience { padding: 25px var(--gutter) 35px; grid-template-columns: minmax(0, 1fr); gap: 25px; }
-  .ambience-photo { height: auto; }
+  /* Read the heading first, then look at the room. */
+  .ambience { padding: 25px var(--gutter) 35px; grid-template-columns: minmax(0, 1fr); grid-template-rows: none; gap: 26px; height: auto; }
+  .ambience-copy { grid-column: 1; grid-row: auto; order: 1; padding-top: 0; max-width: none; }
+  .ambience-photo { grid-column: 1; grid-row: auto; order: 2; height: auto; }
+  .bar-detail { grid-column: 1; grid-row: auto; order: 3; max-width: none; }
   .ambience-photo img { aspect-ratio: 4 / 5; height: auto; }
-  .ambience-copy { padding-top: 0; display: block; height: auto; max-width: none; }
   .ambience-copy h2 { font-size: 48px; }
   .ambience-copy > p { margin-top: 20px; }
-  .bar-detail { flex: none; }
   .bar-detail img { aspect-ratio: 4 / 3; height: auto; object-position: center 65%; }
 
   .visit { grid-template-columns: 1fr; gap: 28px; padding-top: 35px; padding-bottom: 35px; }
