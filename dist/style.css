@@ -237,7 +237,8 @@ em { font-weight: 400; }
 .ambience-copy { grid-column: 2; grid-row: 1; max-width: 480px; padding-top: 12px; }
 .ambience-copy > p { margin-top: 27px; color: var(--muted); }
 .bar-detail { grid-column: 2; grid-row: 2; margin: 0; width: 100%; max-width: 480px; min-height: 0; }
-.bar-detail img { width: 100%; height: 100%; object-fit: cover; object-position: center 72%; }
+/* 38% keeps the whole BAR sign in frame; lower values decapitate it. */
+.bar-detail img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; }
 
 /* ---------------------------------------------------------------- visit */
 .visit { display: grid; grid-template-columns: 1.4fr 1fr; gap: 6%; padding-top: 40px; padding-bottom: 50px; }
@@ -353,7 +354,8 @@ footer { padding: 15px var(--gutter) 25px; }
   .ambience-photo img { aspect-ratio: 4 / 5; height: auto; }
   .ambience-copy h2 { font-size: 48px; }
   .ambience-copy > p { margin-top: 20px; }
-  .bar-detail img { aspect-ratio: 4 / 3; height: auto; object-position: center 65%; }
+  /* Square, not letterboxed: a 4/3 crop of this upright photo cut the sign in half. */
+  .bar-detail img { aspect-ratio: 1 / 1; height: auto; object-position: center 40%; }
 
   .visit { grid-template-columns: 1fr; gap: 28px; padding-top: 35px; padding-bottom: 35px; }
   .visit h2 { font-size: 46px; }
